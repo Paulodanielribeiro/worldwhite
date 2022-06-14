@@ -1,6 +1,15 @@
 import { getAuth } from 'firebase/auth';
 import firebaseApp from './config/firebase';
- const auth =getAuth(firebaseApp)
+
+const loadingGif =<HTMLImageElement> document.createElement('img')
+loadingGif.src='/assets/img/loading.gif'
+const app = <HTMLDivElement>document.getElementById('app')
+app.appendChild(loadingGif)
+app.style.display = 'flex'
+app.style.alignItems ='center'
+app.style.justifyContent ='center'
+
+const auth =getAuth(firebaseApp)
  auth
     .signOut()
     .then(()=>{
